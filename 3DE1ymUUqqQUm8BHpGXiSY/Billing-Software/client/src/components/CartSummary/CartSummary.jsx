@@ -162,15 +162,15 @@ const CartSummary = ({customerName, mobileNumber, setMobileNumber, setCustomerNa
             <div className="cart-summary-details">
                 <div className="d-flex justify-content-between mb-2">
                     <span className="text-light">Item: </span>
-                    <span className="text-light">₹{totalAmount.toFixed(2)}</span>
+                    <span className="text-light">${totalAmount.toFixed(2)}</span>
                 </div>
                 <div className="d-flex justify-content-between mb-2">
                     <span className="text-light">Tax (1%):</span>
-                    <span className="text-light">₹{tax.toFixed(2)}</span>
+                    <span className="text-light">${tax.toFixed(2)}</span>
                 </div>
                 <div className="d-flex justify-content-between mb-4">
                     <span className="text-light">Total:</span>
-                    <span className="text-light">₹{grandTotal.toFixed(2)}</span>
+                    <span className="text-light">${grandTotal.toFixed(2)}</span>
                 </div>
             </div>
 

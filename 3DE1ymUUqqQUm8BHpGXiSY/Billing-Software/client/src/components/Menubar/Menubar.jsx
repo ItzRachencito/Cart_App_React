@@ -33,28 +33,28 @@ const Menubar = () => {
             <div className="collapse navbar-collapse p-2" id="navbarNav">
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                     <li className="nav-item">
-                        <Link className={`nav-link ${isActive('/dashboard') ? 'fw-bold text-warning': ''}`} to="/dashboard">Dashboard</Link>
+                        <Link className={`nav-link ${isActive('/dashboard') ? 'fw-bold text-warning': ''}`} to="/dashboard">Inicio</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className={`nav-link ${isActive('/explore') ? 'fw-bold text-warning': ''}`} to="/explore">Explore</Link>
+                        <Link className={`nav-link ${isActive('/explore') ? 'fw-bold text-warning': ''}`} to="/explore">Catálogo</Link>
                     </li>
                     {
                         isAdmin && (
                             <>
                                 <li className="nav-item">
-                                    <Link className={`nav-link ${isActive('/items') ? 'fw-bold text-warning': ''}`} to="/items">Manage Items</Link>
+                                    <Link className={`nav-link ${isActive('/items') ? 'fw-bold text-warning': ''}`} to="/items">gestionar Items</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className={`nav-link ${isActive('/category') ? 'fw-bold text-warning': ''}`} to="/category">Manage Categories</Link>
+                                    <Link className={`nav-link ${isActive('/category') ? 'fw-bold text-warning': ''}`} to="/category">Gestionar Categorías</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className={`nav-link ${isActive('/users') ? 'fw-bold text-warning': ''}`} to="/users">Manage Users</Link>
+                                    <Link className={`nav-link ${isActive('/users') ? 'fw-bold text-warning': ''}`} to="/users">Gestionar Usuarios</Link>
                                 </li>
                             </>
                         )
                     }
                     <li className="nav-item">
-                        <Link className={`nav-link ${isActive('/orders') ? 'fw-bold text-warning': ''}`} to="/orders">Order History</Link>
+                        <Link className={`nav-link ${isActive('/orders') ? 'fw-bold text-warning': ''}`} to="/orders">Historial de Órdenes</Link>
                     </li>
                 </ul>
                 {/*Add the dropdown for userprofile*/}
