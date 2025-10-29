@@ -28,7 +28,7 @@ const UsersList = ({users, setUsers}) => {
                     <input type="text"
                            name="keyword"
                            id="keyword"
-                           placeholder="Search by keyword"
+                           placeholder="Busca usuarios"
                            className="form-control"
                            onChange={(e) => setSearchTerm(e.target.value)}
                            value={searchTerm}

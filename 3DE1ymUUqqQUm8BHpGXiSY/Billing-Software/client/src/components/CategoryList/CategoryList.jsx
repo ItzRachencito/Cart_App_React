@@ -35,7 +35,7 @@ const CategoryList = () => {
                     <input type="text"
                            name="keyword"
                            id="keyword"
-                           placeholder="Search by keyword"
+                           placeholder="Busca Categorías"
                            className="form-control"
                             onChange={(e) => setSearchTerm(e.target.value)}
                            value={searchTerm}

@@ -51,13 +51,13 @@ const OrderHistory = () => {
                 <table className="table table-striped table-hover">
                     <thead className="table-dark">
                     <tr>
-                        <th>Order Id</th>
-                        <th>Customer</th>
-                        <th>Items</th>
+                        <th>Número de orden</th>
+                        <th>Cliente</th>
+                        <th>Ítems</th>
                         <th>Total</th>
-                        <th>Payment</th>
-                        <th>Status</th>
-                        <th>Date</th>
+                        <th>Método de Pago</th>
+                        <th>Estado</th>
+                        <th>Hora</th>
                     </tr>
                     </thead>
                     <tbody>

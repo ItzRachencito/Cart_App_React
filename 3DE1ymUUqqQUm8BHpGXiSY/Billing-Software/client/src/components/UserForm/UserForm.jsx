@@ -45,31 +45,31 @@ const UserForm = ({setUsers}) => {
                     <div className="card-body">
                         <form onSubmit={onSubmitHandler}>
                             <div className="mb-3">
-                                <label htmlFor="name" className="form-label">Name</label>
+                                <label htmlFor="name" className="form-label">Nombre de usuario</label>
                                 <input type="text"
                                        name="name"
                                        id="name"
                                        className="form-control"
-                                       placeholder="Jhon Doe"
+                                       placeholder="Ingresa nombre de usuario"
                                        onChange={onChangeHandler}
                                        value={data.name}
                                        required
                                 />
                             </div>
                             <div className="mb-3">
-                                <label htmlFor="email" className="form-label">Email</label>
+                                <label htmlFor="email" className="form-label">Dirección correo electrónico</label>
                                 <input type="email"
                                        name="email"
                                        id="email"
                                        className="form-control"
-                                       placeholder="yourname@example.com"
+                                       placeholder="nombre-ejemplo123@lunaria.com"
                                        onChange={onChangeHandler}
                                        value={data.email}
                                        required
                                 />
                             </div>
                             <div className="mb-3">
-                                <label htmlFor="password" className="form-label">Password</label>
+                                <label htmlFor="password" className="form-label">Contraseña</label>
                                 <input type="password"
                                        name="password"
                                        id="password"
@@ -81,7 +81,7 @@ const UserForm = ({setUsers}) => {
                                 />
                             </div>
                             <button type="submit" className="btn btn-warning w-100" disabled={loading}>
-                                {loading ? "Loading..." : "Save"}
+                                {loading ? "Cargando..." : "Crear Usuario"}
                             </button>
                         </form>
                     </div>

@@ -8,7 +8,7 @@ const CartItems = () => {
         <div className="p-3 h-100 overflow-y-auto">
             {cartItems.length === 0 ? (
                 <p className="text-light">
-                    Your cart is empty.
+                    Tu carrito está vació.
                 </p>
             ) : (
                 <div className="cart-items-list">

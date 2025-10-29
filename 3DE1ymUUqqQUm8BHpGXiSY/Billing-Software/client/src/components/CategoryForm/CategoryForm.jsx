@@ -65,31 +65,31 @@ const CategoryForm = () => {
                                 <input type="file" name="image" id="image" className='form-control' hidden onChange={(e) => setImage(e.target.files[0])} />
                             </div>
                             <div className="mb-3">
-                                <label htmlFor="name" className="form-label">Name</label>
+                                <label htmlFor="name" className="form-label">Nombre</label>
                                 <input type="text"
                                     name="name"
                                     id="name"
                                     className="form-control"
-                                    placeholder="Category Name"
+                                    placeholder="Ingresa nombre de categoría"
                                     onChange={onChangeHandler}
                                     value={data.name}
                                     required
                                 />
                             </div>
                             <div className="mb-3">
-                                <label htmlFor="description" className="form-label">Description</label>
+                                <label htmlFor="description" className="form-label">Descripción</label>
                                 <textarea
                                         rows="5"
                                        name="description"
                                        id="description"
                                        className="form-control"
-                                       placeholder="Write content here.."
+                                       placeholder="Ingresa una descripción"
                                         onChange={onChangeHandler}
                                         value={data.description}
                                 ></textarea>
                             </div>
                             <div className="mb-3">
-                                <label htmlFor="bgcolor" className="form-label">Background color</label>
+                                <label htmlFor="bgcolor" className="form-label">Color de Categoría</label>
                                 <br/>
                                 <input type="color"
                                        name="bgColor"
@@ -101,7 +101,7 @@ const CategoryForm = () => {
                             </div>
                             <button type="submit"
                                     disabled={loading}
-                                    className="btn btn-warning w-100">{loading ? "Loading..." : "Submit"}</button>
+                                    className="btn btn-warning w-100">{loading ? "Cargando..." : "Hecho"}</button>
                         </form>
                     </div>
                 </div>

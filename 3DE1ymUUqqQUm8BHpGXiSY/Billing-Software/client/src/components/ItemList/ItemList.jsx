@@ -35,7 +35,7 @@ const ItemList = () => {
                     <input type="text"
                            name="keyword"
                            id="keyword"
-                           placeholder="Search by keyword"
+                           placeholder="Busca ítems"
                            className="form-control"
                            onChange={(e) => setSearchTerm(e.target.value)}
                            value={searchTerm}

@@ -15,7 +15,7 @@ const CartSummary = ({customerName, mobileNumber, setMobileNumber, setCustomerNa
     const [showPopup, setShowPopup] = useState(false);
 
     const totalAmount = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
-    const tax = totalAmount * 0.01;
+    const tax = totalAmount * 0.19;
     const grandTotal = totalAmount + tax;
 
     const clearAll = () => {
@@ -165,7 +165,7 @@ const CartSummary = ({customerName, mobileNumber, setMobileNumber, setCustomerNa
                     <span className="text-light">${totalAmount.toFixed(2)}</span>
                 </div>
                 <div className="d-flex justify-content-between mb-2">
-                    <span className="text-light">Tax (1%):</span>
+                    <span className="text-light">IVA (19%):</span>
                     <span className="text-light">${tax.toFixed(2)}</span>
                 </div>
                 <div className="d-flex justify-content-between mb-4">
@@ -193,7 +193,7 @@ const CartSummary = ({customerName, mobileNumber, setMobileNumber, setCustomerNa
                     onClick={placeOrder}
                     disabled={isProcessing || !orderDetails}
                 >
-                    Place Order
+                    Ver Detalle de Comprobante
                 </button>
             </div>
             {
