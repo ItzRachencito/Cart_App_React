@@ -56,10 +56,10 @@ const ItemList = () => {
                                 <div className="flex-grow-1">
                                     <h6 className="mb-1 text-white">{item.name}</h6>
                                     <p className="mb-0 text-white">
-                                        Category: {item.categoryName}
+                                        Categoría: {item.categoryName}
                                     </p>
                                     <span className="mb-0 text-block badge rounded-pill text-bg-warning">
-                                        &#8377;{item.price}
+                                        $ {item.price}
                                     </span>
                                 </div>
                                 <div>

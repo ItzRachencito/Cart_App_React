@@ -20,10 +20,6 @@ const OrderHistory = () => {
         fetchOrders();
     }, []);
 
-    const formatItems = (items) => {
-        return items.map((item) => `${item.name} x ${item.quantity}`).join(', ');
-    }
-
     const formatDate = (dateString) => {
         const options = {
             year: 'numeric',
@@ -36,16 +32,16 @@ const OrderHistory = () => {
     }
 
     if (loading) {
-        return <div className="text-center py-4">Loading orders...</div>
+        return <div className="text-center py-4">Buscando órdenes...</div>
     }
 
     if (orders.length === 0) {
-        return <div className="text-center py-4">No orders found</div>
+        return <div className="text-center py-4">No se encontraron órdenes</div>
     }
 
     return (
         <div className="orders-history-container">
-            <h2 className="mb-2 text-light">All Orders</h2>
+            <h2 className="mb-2 text-light">Órdenes encontradas: </h2>
 
             <div className="table-responsive">
                 <table className="table table-striped table-hover">
@@ -53,7 +49,8 @@ const OrderHistory = () => {
                     <tr>
                         <th>Número de orden</th>
                         <th>Cliente</th>
-                        <th>Ítems</th>
+                        <th>Cantidad</th>
+                        <th>Ítem</th>
                         <th>Total</th>
                         <th>Método de Pago</th>
                         <th>Estado</th>
@@ -61,21 +58,35 @@ const OrderHistory = () => {
                     </tr>
                     </thead>
                     <tbody>
-                    {orders.map(order => (
-                        <tr key={order.orderId}>
-                            <td>{order.orderId}</td>
-                            <td>{order.customerName} <br/>
-                                <small className="text-muted">{order.phoneNumber}</small>
-                            </td>
-                            <td>{formatItems(order.items)}</td>
-                            <td>${order.grandTotal}</td>
-                            <td>{order.paymentMethod}</td>
-                            <td>
-                                <span className={`badge ${order.paymentDetails?.status === "COMPLETED"? "bg-success" : "bg-warning text-dark"}`}>{order.paymentDetails?.status || "PENDING"}</span>
-                            </td>
-                            <td>{formatDate(order.createdAt)}</td>
-                        </tr>
-                    ))}
+                    {orders.map(order =>
+                            order.items.map((item, index) => (
+                                <tr key={`${order.orderId}-${index}`}>
+                                    {index === 0 && (
+                                        <>
+                                            <td rowSpan={order.items.length}>{order.orderId}</td>
+                                            <td rowSpan={order.items.length}>
+                                                {order.customerName}<br/>
+                                                <small className="text-muted">{order.phoneNumber}</small>
+                                            </td>
+                                        </>
+                                    )}
+                                    <td>{item.quantity}</td>
+                                    <td>{item.name}</td>
+                                    {index === 0 && (
+                                        <>
+                                            <td rowSpan={order.items.length}>${order.grandTotal}</td>
+                                            <td rowSpan={order.items.length}>{order.paymentMethod}</td>
+                                            <td rowSpan={order.items.length}>
+                                              <span className={`badge ${order.paymentDetails?.status === "COMPLETED" ? "bg-success" : "bg-warning text-dark"}`}>
+                                                {order.paymentDetails?.status || "PENDING"}
+                                              </span>
+                                            </td>
+                                            <td rowSpan={order.items.length}>{formatDate(order.createdAt)}</td>
+                                        </>
+                                    )}
+                                </tr>
+                            ))
+                    )}
                     </tbody>
                 </table>
             </div>

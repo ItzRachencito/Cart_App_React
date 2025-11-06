@@ -71,12 +71,12 @@ const ItemForm = () => {
                                     <input type="file" name="image" id="image" className='form-control' hidden onChange={(e) => setImage(e.target.files[0])} />
                                 </div>
                                 <div className="mb-3">
-                                    <label htmlFor="name" className="form-label">Name</label>
+                                    <label htmlFor="name" className="form-label">Nombre</label>
                                     <input type="text"
                                            name="name"
                                            id="name"
                                            className="form-control"
-                                           placeholder="Item Name"
+                                           placeholder="Ingresa nombre de item"
                                            onChange={onChangeHandler}
                                            value={data.name}
                                            required
@@ -84,10 +84,10 @@ const ItemForm = () => {
                                 </div>
                                 <div className="mb-3">
                                     <label className="form-label" htmlFor="category">
-                                        Category
+                                        Categoría
                                     </label>
                                     <select name="categoryId" id="category" className="form-control" onChange={onChangeHandler} value={data.categoryId} required>
-                                        <option value="">--SELECT CATEGORY--</option>
+                                        <option value="">--Selecciona la categoría--</option>
                                         {categories.map((category, index) => (
                                             <option key={index} value={category.categoryId}>{category.name}</option>
                                         ))}
@@ -95,20 +95,20 @@ const ItemForm = () => {
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="price" className="form-label">Price</label>
-                                    <input type="number" name="price" id="price" className="form-control" placeholder="&#8377;200.00" onChange={onChangeHandler} value={data.price} required/>
+                                    <input type="number" name="price" id="price" className="form-control" placeholder="$ 000.00" onChange={onChangeHandler} value={data.price} required/>
                                 </div>
                                 <div className="mb-3">
-                                    <label htmlFor="description" className="form-label">Description</label>
+                                    <label htmlFor="description" className="form-label">Descripción</label>
                                     <textarea
                                         rows="5"
                                         name="description"
                                         id="description"
                                         className="form-control"
-                                        placeholder="Write content here.."
+                                        placeholder="Ingresa una descripción"
                                         onChange={onChangeHandler}
                                         value={data.description}></textarea>
                                 </div>
-                                <button type="submit" className="btn btn-warning w-100" disabled={loading}>{loading ? "Loading..." : "Save"}</button>
+                                <button type="submit" className="btn btn-warning w-100" disabled={loading}>{loading ? "Cargando..." : "Hecho"}</button>
                             </form>
                         </div>
                     </div>
