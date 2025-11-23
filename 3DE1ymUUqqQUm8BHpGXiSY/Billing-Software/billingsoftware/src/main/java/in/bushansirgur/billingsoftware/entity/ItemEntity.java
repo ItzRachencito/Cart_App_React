@@ -22,77 +22,29 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @Builder
 public class ItemEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // ... existing fields ...
+    @Column(unique = true)
+    private String itemId;
 
-    @Column(name = "stock", nullable = false)
-    private Integer stock = 0;
+    private String name;
 
-    @Column(name = "min_stock", nullable = false)
-    private Integer minStock = 10;
+    private BigDecimal price;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "stock_status")
-    private StockStatus stockStatus = StockStatus.IN_STOCK;
+    private String description;
 
-    // Getters y Setters
-    public Integer getStock() {
-        return stock;
-    }
+    @CreationTimestamp
+    @Column(updatable = false)
+    private Timestamp createdAt;
+    @UpdateTimestamp
+    private Timestamp updatedAt;
 
-    public void setStock(Integer stock) {
-        this.stock = stock;
-        updateStockStatus();
-    }
-
-    public Integer getMinStock() {
-        return minStock;
-    }
-
-    public void setMinStock(Integer minStock) {
-        this.minStock = minStock;
-        updateStockStatus();
-    }
-
-    public StockStatus getStockStatus() {
-        return stockStatus;
-    }
-
-    public void setStockStatus(StockStatus stockStatus) {
-        this.stockStatus = stockStatus;
-    }
-
-    // Método para actualizar estado automáticamente
-    private void updateStockStatus() {
-        if (stock <= 0) {
-            this.stockStatus = StockStatus.OUT_OF_STOCK;
-        } else if (stock <= minStock) {
-            this.stockStatus = StockStatus.LOW_STOCK;
-        } else {
-            this.stockStatus = StockStatus.IN_STOCK;
-        }
-    }
-
-    // Método helper para reducir stock
-    public boolean reduceStock(Integer quantity) {
-        if (this.stock >= quantity) {
-            this.stock -= quantity;
-            updateStockStatus();
-            return true;
-        }
-        return false;
-    }
-
-    // Método helper para aumentar stock
-    public void increaseStock(Integer quantity) {
-        this.stock += quantity;
-        updateStockStatus();
-    }
-
+    private String imgUrl;
+    @ManyToOne
+    @JoinColumn(name = "category_id", nullable = false)
+    @OnDelete(action = OnDeleteAction.RESTRICT)
+    private CategoryEntity category;
 }
-
-
-

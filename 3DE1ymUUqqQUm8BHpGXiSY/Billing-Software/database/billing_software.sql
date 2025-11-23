@@ -4,11 +4,11 @@
 -- ------------------------------------------------------
 -- Server version	8.0.41
 
-drop database if exists billing_app;
+drop database if exists billing_software;
 
-create database billing_app;
+create database billing_software;
 
-use billing_app;
+use billing_software;
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -145,31 +145,3 @@ CREATE TABLE `tbl_users` (
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2025-04-09 16:58:07
-
--- Agregar campos de stock a la tabla productos (si no existen)
-ALTER TABLE tbl_items
-ADD COLUMN stock INT DEFAULT 0,
-ADD COLUMN min_stock INT DEFAULT 10,
-ADD COLUMN stock_status ENUM('in_stock', 'low_stock', 'out_of_stock') DEFAULT 'in_stock';
-
--- Crear tabla para historial de movimientos de stock
-CREATE TABLE IF NOT EXISTS tbl_stock_movements (
-    id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    item_id BIGINT NOT NULL,
-    movement_type ENUM('IN', 'OUT', 'ADJUSTMENT') NOT NULL,
-    quantity INT NOT NULL,
-    previous_stock INT NOT NULL,
-    new_stock INT NOT NULL,
-    reference_type VARCHAR(50), -- 'INVOICE', 'PURCHASE', 'ADJUSTMENT'
-    reference_id BIGINT,
-    reason VARCHAR(255),
-    created_by VARCHAR(100),
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (item_id) REFERENCES tbl_items(id) ON DELETE CASCADE
-);
-
--- Índices para mejorar performance
-CREATE INDEX idx_stock_movements_product ON tbl_stock_movements(item_id);
-CREATE INDEX idx_stock_movements_date ON tbl_stock_movements(created_at);
-CREATE INDEX idx_products_stock_status ON tbl_items(stock_status);
-
