@@ -118,7 +118,7 @@ public class StockService {
      * Obtener historial de movimientos de un producto
      */
     public List<StockMovement> getProductMovements(Long productId) {
-        return stockMovementRepository.findByProductIdOrderByCreatedAtDesc(productId);
+        return stockMovementRepository.findByItemEntityIdOrderByCreatedAtDesc(productId);
     }
 
     /**

@@ -11,7 +11,7 @@ import java.util.List;
 public interface StockMovementRepository extends JpaRepository<StockMovement, Long> {
 
     // Obtener movimientos por producto
-    List<StockMovement> findByProductIdOrderByCreatedAtDesc(Long productId);
+    List<StockMovement> findByItemEntityIdOrderByCreatedAtDesc(Long itemId);
 
     // Obtener movimientos recientes
     List<StockMovement> findTop50ByOrderByCreatedAtDesc();
