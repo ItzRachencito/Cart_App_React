@@ -96,11 +96,11 @@ const ItemForm = () => {
                                     </select>
                                 </div>
                                 <div className="mb-3">
-                                    <label htmlFor="price" className="form-label">Price</label>
+                                    <label htmlFor="price" className="form-label">Precio</label>
                                     <input type="number" name="price" id="price" className="form-control" placeholder="$ 000.00" onChange={onChangeHandler} value={data.price} required/>
                                 </div>
                                 <div className="mb-3">
-                                    <label htmlFor="stockQuantity" className="form-label">Stock Quantity</label>
+                                    <label htmlFor="stockQuantity" className="form-label">Cantidad de Stock</label>
                                     <input type="number" name="stockQuantity" id="stockQuantity" className="form-control" placeholder="0" onChange={onChangeHandler} value={data.stockQuantity} min="0" required/>
                                 </div>
                                 <div className="mb-3">
