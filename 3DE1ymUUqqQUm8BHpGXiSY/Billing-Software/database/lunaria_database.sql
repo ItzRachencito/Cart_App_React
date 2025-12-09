@@ -4,11 +4,11 @@
 -- ------------------------------------------------------
 -- Server version	8.0.41
 
-drop database if exists billing_software;
+drop database if exists lunaria_database;
 
-create database billing_software;
+create database lunaria_database;
 
-use billing_software;
+use lunaria_database;
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
